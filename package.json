@@ -1,0 +1,220 @@
+{
+  "name": "documentation-boilerplate",
+  "version": "1.0.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://git.inthepocket.org/team-spacebar/boilerplates/next-boilerplate"
+  },
+  "author": "Team Spacebar",
+  "license": "ISC",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
+    "lint:fix": "npm run lint -- --fix",
+    "lint:markdown": "markdownlint '**/*.md' -i node_modules -i CHANGELOG.md",
+    "prepare": "./scripts/postinstall-local.sh",
+    "prettier": "prettier \"**/*.{js,ts,tsx,css}\"",
+    "prettier:fix": "npm run prettier -- --write",
+    "release": "standard-version",
+    "stylelint": "stylelint 'src/**/*.{css,scss,sass}'",
+    "stylelint:fix": "npm run stylelint -- --fix",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:ci": "jest --coverage --ci"
+  },
+  "dependencies": {
+    "next": "12.0.7",
+    "next-i18next": "9.2.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "7.16.0",
+    "@testing-library/jest-dom": "5.16.1",
+    "@testing-library/react": "12.1.2",
+    "@types/jest": "27.0.3",
+    "@types/react": "17.0.37",
+    "@typescript-eslint/eslint-plugin": "5.6.0",
+    "@typescript-eslint/parser": "5.6.0",
+    "eslint": "7.32.0",
+    "eslint-config-next": "12.0.7",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-import": "2.25.3",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-simple-import-sort": "7.0.0",
+    "fetch-mock-jest": "1.5.1",
+    "identity-obj-proxy": "3.0.0",
+    "jest": "27.4.4",
+    "jest-junit": "13.0.0",
+    "markdownlint-cli": "0.30.0",
+    "node-mocks-http": "1.11.0",
+    "prettier": "2.5.1",
+    "standard-version": "9.3.2",
+    "stylelint": "14.1.0",
+    "stylelint-config-idiomatic-order": "8.1.0",
+    "stylelint-config-standard": "24.0.0",
+    "ts-jest": "27.1.1",
+    "typescript": "4.5.3"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es6": true,
+      "es2021": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:@typescript-eslint/recommended-requiring-type-checking",
+      "next",
+      "next/core-web-vitals",
+      "plugin:import/typescript",
+      "plugin:prettier/recommended"
+    ],
+    "ignorePatterns": [
+      "coverage/**",
+      "src/@types/**",
+      "next-i18next.config.js",
+      "next.config.js"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 12,
+      "sourceType": "module",
+      "project": "./tsconfig.json"
+    },
+    "plugins": [
+      "@typescript-eslint",
+      "simple-import-sort",
+      "import"
+    ],
+    "rules": {
+      "@typescript-eslint/no-unused-vars": "error",
+      "@typescript-eslint/no-non-null-assertion": "off",
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
+      "import/first": "error",
+      "import/newline-after-import": "error",
+      "import/no-duplicates": "error"
+    },
+    "root": true
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "<rootDir>/src/components/**/*.{ts,tsx}",
+      "<rootDir>/src/pages/api/**/*.{ts,tsx}",
+      "!**/*.d.ts"
+    ],
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "clover",
+      "cobertura"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "<rootDir>/tsconfig.jest.json"
+      }
+    },
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/jest/fileMock.ts",
+      "\\.(css|less)$": "identity-obj-proxy"
+    },
+    "preset": "ts-jest",
+    "reporters": [
+      "default",
+      "jest-junit"
+    ],
+    "roots": [
+      "<rootDir>/__tests__"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest/jest.setup.ts"
+    ],
+    "testEnvironment": "jsdom",
+    "testPathIgnorePatterns": [
+      "<rootDir>/__tests__/__mocks__",
+      "<rootDir>/__tests__/pages"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 100,
+    "tabWidth": 2,
+    "trailingComma": "all"
+  },
+  "renovate": {
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+      "team-spacebar/tools/renovate-cli"
+    ]
+  },
+  "standard-version": {
+    "types": [
+      {
+        "type": "feat",
+        "section": "Features"
+      },
+      {
+        "type": "fix",
+        "section": "Bug Fixes"
+      },
+      {
+        "type": "chore",
+        "section": "Chores"
+      },
+      {
+        "type": "docs",
+        "section": "Docs"
+      },
+      {
+        "type": "refactor",
+        "section": "Refactors"
+      },
+      {
+        "type": "perf",
+        "section": "Performance updates"
+      },
+      {
+        "type": "test",
+        "section": "Test changes"
+      },
+      {
+        "type": "style",
+        "section": "Code style changes"
+      }
+    ]
+  },
+  "stylelint": {
+    "extends": [
+      "stylelint-config-standard",
+      "stylelint-config-idiomatic-order"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.module.css"
+        ],
+        "rules": {
+          "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$"
+        }
+      }
+    ],
+    "rules": {
+      "string-quotes": "single"
+    }
+  }
+}

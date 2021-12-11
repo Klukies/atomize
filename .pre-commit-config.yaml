@@ -1,0 +1,55 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: trailing-whitespace
+        stages:
+          - commit
+      - id: check-yaml
+        stages:
+          - commit
+      - id: check-added-large-files
+        args:
+          - '--maxkb=5120'
+        stages:
+          - commit
+
+  - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
+    rev: v5.0.0
+    hooks:
+      - id: commitlint
+        name: Validating Commit message
+        stages:
+          - commit-msg
+        additional_dependencies: ['@commitlint/config-conventional']
+
+  - repo: local
+    hooks:
+      - id: eslint
+        name: Lint files with ESLint
+        entry: ./node_modules/.bin/eslint --fix
+        language: script
+        files: \.[jt]sx?$
+        types: [file]
+        stages:
+          - commit
+
+      - id: StyleLint
+        name: Lint (S)CSS files with Stylelint
+        entry: ./node_modules/.bin/stylelint --fix
+        language: script
+        files: \.(css|scss|sass)$
+        stages:
+          - commit
+
+      - id: markdownlint
+        name: Lint Markdown documentation
+        entry: ./node_modules/.bin/markdownlint
+        language: script
+        files: \.md$
+        types: [file]
+        args: [-i, CHANGELOG.md]
+        stages:
+          - commit

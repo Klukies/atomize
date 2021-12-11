@@ -1,0 +1,6 @@
+include:
+  - project: team-spacebar/tools/gitlab-templates
+    file: /templates/next.yml
+    ref: v1.1.0
+
+stages: [dependencies, lint, tests, build]
