@@ -1,0 +1,6 @@
+@use 'theme';
+
+#navigation {
+  display: flex;
+  padding: theme.$spacing-5;
+}

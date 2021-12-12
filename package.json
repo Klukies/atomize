@@ -52,6 +52,7 @@
     "jest-junit": "13.0.0",
     "markdownlint-cli": "0.30.0",
     "node-mocks-http": "1.11.0",
+    "postcss-scss": "^4.0.2",
     "prettier": "2.5.1",
     "standard-version": "9.3.2",
     "stylelint": "14.1.0",
@@ -208,7 +209,13 @@
     "overrides": [
       {
         "files": [
-          "**/*.module.css"
+          "**/*.scss"
+        ],
+        "customSyntax": "postcss-scss"
+      },
+      {
+        "files": [
+          "**/*.module.scss"
         ],
         "rules": {
           "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$"
