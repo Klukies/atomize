@@ -19,7 +19,7 @@
     "prettier": "prettier \"**/*.{js,ts,tsx,css}\"",
     "prettier:fix": "npm run prettier -- --write",
     "release": "standard-version",
-    "stylelint": "stylelint 'src/**/*.{css,scss,sass}'",
+    "stylelint": "stylelint 'src/**/*.{css,scss}'",
     "stylelint:fix": "npm run stylelint -- --fix",
     "test": "jest",
     "test:coverage": "jest --coverage",
@@ -29,7 +29,8 @@
     "next": "12.0.7",
     "next-i18next": "9.2.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "sass": "^1.45.0"
   },
   "devDependencies": {
     "@babel/preset-typescript": "7.16.0",
@@ -55,6 +56,7 @@
     "standard-version": "9.3.2",
     "stylelint": "14.1.0",
     "stylelint-config-idiomatic-order": "8.1.0",
+    "stylelint-config-recommended-scss": "^5.0.2",
     "stylelint-config-standard": "24.0.0",
     "ts-jest": "27.1.1",
     "typescript": "4.5.3"
@@ -200,7 +202,7 @@
   },
   "stylelint": {
     "extends": [
-      "stylelint-config-standard",
+      "stylelint-config-recommended-scss",
       "stylelint-config-idiomatic-order"
     ],
     "overrides": [

@@ -1,0 +1,22 @@
+@use 'reset';
+@use 'theme';
+
+body {
+  background-color: theme.$secondary-500;
+}
+
+body,
+a {
+  color: theme.$primary-500;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: theme.$primary-500;
+  }
+
+  body,
+  a {
+    color: theme.$secondary-500;
+  }
+}
