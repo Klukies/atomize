@@ -1,5 +1,6 @@
 @use 'reset';
 @use 'theme';
+@use 'typography';
 
 body {
   background-color: theme.$secondary-500;
