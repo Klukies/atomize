@@ -2,23 +2,27 @@ import Link from 'next/link';
 import { ReactNode } from 'react';
 
 import Logo from '../../icons/Logo';
+import ThemeToggle from '../ThemeToggle';
 import styles from './header.module.scss';
 
 interface Props {
   children?: ReactNode;
 }
 
-const Header = ({ children }: Props) => (
-  <header>
-    <nav id={styles.navigation}>
+const Header = ({ children }: Props) => {
+  return (
+    <header>
       <Link href="/">
-        <a>
+        <a className={styles.branding} aria-label="Home">
           <Logo />
         </a>
       </Link>
-      <div>{children}</div>
-    </nav>
-  </header>
-);
+      <div className={styles.siteNavigation}>
+        {children ? <nav>{children}</nav> : null}
+        <ThemeToggle />
+      </div>
+    </header>
+  );
+};
 
 export default Header;

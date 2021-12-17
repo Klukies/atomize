@@ -1,6 +1,34 @@
 @use 'theme';
 
-#navigation {
+.branding {
   display: flex;
-  padding: theme.$spacing-5;
+  height: 32px;
+  align-items: center;
+  font-size: 1.5rem;
+  text-decoration: none;
+
+  &:focus {
+    color: theme.$brand-500;
+  }
 }
+
+.siteNavigation {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+
+  nav a {
+    margin-right: 2.75rem;
+    color: theme.$tertiary-800;
+
+    &:hover {
+      color: theme.$secondary-500;
+    }
+
+    &:focus {
+      color: theme.$secondary-500;
+      text-decoration: underline;
+    }
+  }
+}
+
