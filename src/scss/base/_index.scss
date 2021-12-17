@@ -2,13 +2,30 @@
 @use 'theme';
 @use 'typography';
 
+body,
+a {
+  color: theme.$primary-500;
+}
+
+
 body {
   background-color: theme.$secondary-500;
 }
 
-body,
+header {
+  display: flex;
+  padding: 1.25rem 1rem;
+}
+
 a {
-  color: theme.$primary-500;
+  outline: none;
+  text-decoration: none;
+}
+
+input[type='checkbox'] {
+  width: 24px;
+  height: 24px;
+  margin: 0;
 }
 
 @media (prefers-color-scheme: dark) {
