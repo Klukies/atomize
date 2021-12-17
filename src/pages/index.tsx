@@ -1,25 +1,18 @@
-import type { GetStaticProps } from 'next';
 import Head from 'next/head';
-import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const Home = () => {
-  const { t } = useTranslation('index');
-
   return (
     <>
-      {/* Move Head to layout */}
       <Head>
-        <title>{t('title')}</title>
-        <meta name="description" content={t('description')} />
+        <title>Cookie Though</title>
+        <meta
+          name="description"
+          content="Easy to use, minimal footprint application that manages cookie preferences. So delicious, you'll never need another library again."
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
     </>
   );
 };
-
-export const getStaticProps: GetStaticProps = async ({ locale }) => ({
-  props: { ...(await serverSideTranslations(locale!, ['index'])) },
-});
 
 export default Home;

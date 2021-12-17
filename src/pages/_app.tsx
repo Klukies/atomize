@@ -1,8 +1,7 @@
-import '../scss/index.scss';
+import '../scss/app.scss';
 
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
-import { appWithTranslation } from 'next-i18next';
 
 import Documentation from '../layouts/Documentation';
 import Landing from '../layouts/Landing';
@@ -26,4 +25,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default appWithTranslation(MyApp);
+export default MyApp;

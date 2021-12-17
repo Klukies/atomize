@@ -1,4 +1,3 @@
-import { useTranslation } from 'next-i18next';
 import { MouseEventHandler } from 'react';
 
 import Close from '../../icons/Close';
@@ -10,11 +9,10 @@ type Props = {
 };
 
 const Hamburger = ({ isOpen, onClick }: Props) => {
-  const { t } = useTranslation('documentation');
-  const action = isOpen ? t('common.header.hamburger.open') : t('common.header.hamburger.close');
+  const ariaLabel = `${isOpen ? 'Open' : 'Close'} menu`;
 
   return (
-    <button onClick={onClick} aria-label={t('common.header.hamburger.label', { action })}>
+    <button onClick={onClick} aria-label={ariaLabel}>
       {isOpen ? <Close /> : <Menu />}
     </button>
   );
