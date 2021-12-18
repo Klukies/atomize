@@ -4,12 +4,11 @@
 
 body,
 a {
-  color: theme.$primary-500;
+  color: theme.$dark-500;
 }
 
-
 body {
-  background-color: theme.$secondary-500;
+  background-color: theme.$light-500;
 }
 
 header {
@@ -18,6 +17,7 @@ header {
 }
 
 a {
+  color: inherit;
   outline: none;
   text-decoration: none;
 }
@@ -28,13 +28,13 @@ input[type='checkbox'] {
   margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
   body {
-    background-color: theme.$primary-500;
+    background-color: theme.$dark-500;
   }
 
   body,
   a {
-    color: theme.$secondary-500;
+    color: theme.$light-500;
   }
 }

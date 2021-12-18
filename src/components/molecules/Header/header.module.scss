@@ -4,6 +4,7 @@
   display: flex;
   height: 32px;
   align-items: center;
+  color: inherit;
   font-size: 1.5rem;
   text-decoration: none;
 
@@ -18,17 +19,34 @@
   margin-left: auto;
 
   nav a {
-    margin-right: 2.75rem;
-    color: theme.$tertiary-800;
+    margin-right: 1.25rem;
+    color: theme.$light-600;
 
     &:hover {
-      color: theme.$secondary-500;
+      color: theme.$dark-500;
     }
 
     &:focus {
-      color: theme.$secondary-500;
+      color: theme.$dark-500;
       text-decoration: underline;
+    }
+
+    @include theme.min-width(md) {
+      margin-right: 2.75rem;
     }
   }
 }
 
+:global(.dark) .siteNavigation {
+  nav a {
+    color: theme.$light-400;
+
+    &:hover {
+      color: theme.$light-500;
+    }
+
+    &:focus {
+      color: theme.$light-500;
+    }
+  }
+}

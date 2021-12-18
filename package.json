@@ -30,6 +30,7 @@
     "gray-matter": "^4.0.3",
     "mdx-bundler": "^8.0.0",
     "next": "12.0.7",
+    "next-themes": "^0.0.15",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "sass": "^1.45.0"
@@ -57,6 +58,7 @@
     "node-mocks-http": "1.11.0",
     "postcss-scss": "^4.0.2",
     "prettier": "2.5.1",
+    "prettier-stylelint": "^0.4.2",
     "standard-version": "9.3.2",
     "stylelint": "14.1.0",
     "stylelint-config-idiomatic-order": "8.1.0",
@@ -207,7 +209,8 @@
   "stylelint": {
     "extends": [
       "stylelint-config-recommended-scss",
-      "stylelint-config-idiomatic-order"
+      "stylelint-config-idiomatic-order",
+      "./node_modules/prettier-stylelint/config.js"
     ],
     "overrides": [
       {
@@ -221,7 +224,15 @@
           "**/*.module.scss"
         ],
         "rules": {
-          "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$"
+          "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$",
+          "selector-pseudo-class-no-unknown": [
+            true,
+            {
+              "ignorePseudoClasses": [
+                "global"
+              ]
+            }
+          ]
         }
       }
     ],

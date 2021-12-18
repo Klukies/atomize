@@ -1,20 +1,12 @@
-import { useState } from 'react';
+import { useTheme } from 'next-themes';
 
-import useTheme from '../../../hooks/useTheme';
 import styles from './themeToggle.module.scss';
 
 const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
-  const [isChecked, setIsChecked] = useState(() => theme === 'light');
+  const isLight = theme === 'light';
 
-  const updateTheme = () => {
-    setIsChecked((prevState) => {
-      const updatedTheme = isChecked ? 'dark' : 'light';
-      document.body.className = updatedTheme;
-      setTheme(updatedTheme);
-      return !prevState;
-    });
-  };
+  const updateTheme = () => setTheme(isLight ? 'dark' : 'light');
 
   return (
     <input
@@ -22,7 +14,7 @@ const ThemeToggle = () => {
       type="checkbox"
       aria-label="Theme switch"
       onChange={updateTheme}
-      checked={isChecked}
+      checked={isLight}
     />
   );
 };

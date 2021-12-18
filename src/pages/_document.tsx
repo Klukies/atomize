@@ -1,7 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 
-import getTheme from '../utils/getTheme';
-
 class MyDocument extends Document {
   render() {
     return (
@@ -14,7 +12,7 @@ class MyDocument extends Document {
             rel="stylesheet"
           ></link>
         </Head>
-        <body className={getTheme()}>
+        <body>
           <Main />
           <NextScript />
         </body>
