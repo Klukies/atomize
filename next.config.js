@@ -6,6 +6,6 @@ const { join } = require('path');
 module.exports = {
   reactStrictMode: true,
   sassOptions: { includePaths: [join(__dirname, 'src/scss')] },
-  basePath: '/documentation-boilerplate',
-  assetPrefix: '/documentation-boilerplate/',
+  basePath: process.env.BASE_PATH,
+  assetPrefix: process.env.ASSET_PREFIX,
 };
