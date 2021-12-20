@@ -1,5 +1,9 @@
 @use 'theme';
 
+.header {
+  display: flex;
+}
+
 .branding {
   display: flex;
   height: 32px;
@@ -9,7 +13,7 @@
   text-decoration: none;
 
   &:focus {
-    color: theme.$brand-500;
+    color: theme.$atom-one-light-hue-2;
   }
 }
 
@@ -37,16 +41,22 @@
   }
 }
 
-:global(.dark) .siteNavigation {
-  nav a {
-    color: theme.$light-400;
+:global(.dark) {
+  .branding:focus {
+    color: theme.$atom-one-dark-hue-2;
+  }
 
-    &:hover {
-      color: theme.$light-500;
-    }
+  .siteNavigation {
+    nav a {
+      color: theme.$light-400;
 
-    &:focus {
-      color: theme.$light-500;
+      &:hover {
+        color: theme.$light-500;
+      }
+
+      &:focus {
+        color: theme.$light-500;
+      }
     }
   }
 }

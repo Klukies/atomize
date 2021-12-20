@@ -11,7 +11,7 @@ interface Props {
 
 const Header = ({ children }: Props) => {
   return (
-    <header>
+    <header className={styles.header}>
       <Link href="/">
         <a className={styles.branding} aria-label="Home">
           <Logo />

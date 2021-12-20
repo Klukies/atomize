@@ -1,3 +1,45 @@
+@use 'theme';
+
 .documentation {
-  display: flex;
+  position: relative;
+  margin: auto;
+
+  @include theme.min-width(lg) {
+    display: flex;
+  }
+
+  @include theme.min-width(xl) {
+    max-width: 1024px;
+  }
+
+  > div {
+    box-shadow: inset -1px 0 0 0 theme.$dark-400;
+
+    @include theme.min-width(lg) {
+      position: fixed;
+      left: 0;
+      width: 256px;
+    }
+
+    @include theme.min-width(xl) {
+      position: static;
+      left: auto;
+    }
+  }
+
+  & main {
+    width: 100%;
+    padding: 1.5rem;
+
+    @include theme.min-width(lg) {
+      padding: 72px 1.5rem 72px calc(256px + 1.5rem);
+      margin: auto;
+    }
+
+    @include theme.min-width(xl) {
+      max-width: 768px;
+      padding: 72px 1.5rem;
+      margin: 0;
+    }
+  }
 }

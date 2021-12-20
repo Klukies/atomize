@@ -12,6 +12,8 @@
     "dev": "next dev",
     "build": "next build && next export",
     "start": "next start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d out",
     "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "npm run lint -- --fix",
     "lint:markdown": "markdownlint '**/*.md' -i node_modules -i CHANGELOG.md",
@@ -51,6 +53,7 @@
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-simple-import-sort": "7.0.0",
     "fetch-mock-jest": "1.5.1",
+    "gh-pages": "^3.2.3",
     "identity-obj-proxy": "3.0.0",
     "jest": "27.4.4",
     "jest-junit": "13.0.0",
@@ -91,7 +94,8 @@
       "coverage/**",
       "src/@types/**",
       "next-i18next.config.js",
-      "next.config.js"
+      "next.config.js",
+      "out"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {

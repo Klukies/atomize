@@ -15,6 +15,7 @@ $light-500: #f9f9f9;
 $light-600: #626772;
 
 // Dark
+$dark-400: #747d9180;
 $dark-500: #21252b;
 
 // Tertiary
@@ -29,16 +30,24 @@ $tertiary-700: #c4c2c0;
 $tertiary-800: #acaaa8;
 $tertiary-900: #939290;
 
-// Dark Code Block colors
-$base: #282c34;
-$mono-1: #abb2bf;
-$mono-2: #818896;
-$mono-3: #5c6370;
-$hue-1: #56b6c2;
-$hue-2: #61aeee;
-$hue-3: #c678dd;
-$hue-4: #98c379;
-$hue-5: #e06c75;
-$hue-5-2: #be5046;
-$hue-6: #d19a66;
-$hue-6-2: #e6c07b;
+// Atom One Dark
+$atom-one-dark-base: #282c34;
+$atom-one-dark-mono-1: #abb2bf;
+$atom-one-dark-mono-2: #818896;
+$atom-one-dark-mono-3: #5c6370;
+$atom-one-dark-hue-1: #56b6c2;
+$atom-one-dark-hue-2: #61aeee;
+$atom-one-dark-hue-3: #c678dd;
+$atom-one-dark-hue-4: #98c379;
+$atom-one-dark-hue-5: #e06c75;
+$atom-one-dark-hue-5-2: #be5046;
+$atom-one-dark-hue-6: #d19a66;
+$atom-one-dark-hue-6-2: #e6c07b;
+
+$atom-one-dark-primary-300: #abb2bf26;
+$atom-one-dark-primary-400: #515a6b;
+$atom-one-dark-primary-500: #2c313c;
+
+// Atom One Light
+$atom-one-light-hue-2: #4078f2;
+$atom-one-light-primary-400: #424243;
