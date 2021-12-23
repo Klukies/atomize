@@ -11,7 +11,7 @@ type Props = {
 const Landing = ({ children }: Props) => {
   return (
     <div className={styles.landing}>
-      <Header>
+      <Header variant="landing">
         <Link href="/docs/installation">
           <a>Docs</a>
         </Link>

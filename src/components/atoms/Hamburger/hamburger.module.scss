@@ -1,0 +1,108 @@
+@use 'theme';
+
+.hamburger {
+  padding: 0;
+  border: none;
+  appearance: none;
+  background-color: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+
+  @include theme.min-width(lg) {
+    display: none;
+  }
+
+  .wrapper {
+    position: relative;
+    display: block;
+    width: 24px;
+    height: 24px;
+    padding: 6px 4.5px;
+    transform: none;
+  }
+
+  .wrapper span {
+    position: absolute;
+    display: block;
+    width: 15px;
+    height: 2px;
+    background-color: theme.$light-600;
+    border-radius: 1px;
+    transform: none;
+
+    &:first-of-type {
+      top: 6px;
+    }
+
+    &:nth-of-type(even) {
+      top: 11px;
+    }
+
+    &:last-of-type {
+      bottom: 6px;
+    }
+  }
+
+  &:hover .wrapper span,
+  &:focus .wrapper span {
+    background-color: theme.$dark-500;
+  }
+
+  &:focus,
+  &.active {
+    box-shadow: 0 0 0 1px theme.$dark-500;
+
+    .wrapper span {
+      background-color: theme.$dark-500;
+    }
+  }
+
+  &.active .wrapper {
+    transform: rotate(-90deg);
+
+    span:first-of-type {
+      height: 2.25px;
+      transform: rotate(-45deg) translate(-3.6px, 3.6px);
+    }
+
+    span:nth-of-type(even) {
+      transform: scaleX(0);
+    }
+
+    span:last-of-type {
+      height: 2px;
+      transform: rotate(45deg) translate(-3.6px, -3.6px);
+    }
+  }
+}
+
+@media screen and(prefers-reduced-motion: no-preference) {
+  .wrapper {
+    transition: transform 300ms cubic-bezier(0, 0, 0, 1) 0s;
+  }
+
+  .wrapper span {
+    transition: all 300ms cubic-bezier(0, 0, 0, 1) 0s, background-color 0ms;
+  }
+}
+
+:global(.dark) .hamburger {
+  /* stylelint-disable-next-line no-descending-specificity */
+  .wrapper span {
+    background-color: theme.$light-400;
+  }
+
+  &:hover .wrapper span,
+  &:focus .wrapper span {
+    background-color: #fff;
+  }
+
+  &:focus,
+  &.active {
+    box-shadow: 0 0 0 1px theme.$light-500;
+
+    .wrapper span {
+      background-color: #fff;
+    }
+  }
+}

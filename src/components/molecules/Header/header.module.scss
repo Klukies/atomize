@@ -6,7 +6,6 @@
 
 .branding {
   display: flex;
-  height: 32px;
   align-items: center;
   color: inherit;
   font-size: 1.5rem;
@@ -22,8 +21,13 @@
   align-items: center;
   margin-left: auto;
 
+  button:nth-of-type(even) {
+    margin-left: 0.75rem;
+  }
+
   nav a {
     margin-right: 1.25rem;
+    background-color: transparent;
     color: theme.$light-600;
 
     &:hover {

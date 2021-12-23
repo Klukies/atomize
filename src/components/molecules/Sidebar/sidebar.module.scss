@@ -1,15 +1,59 @@
 @use 'theme';
 
 .sidebar {
-  display: none;
-  padding: 0 1.5rem;
+  height: 100%;
+
+  & > * {
+    padding: 0 1.5rem;
+  }
 
   header {
-    padding: 1.25rem 0;
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 1px 0 theme.$dark-400;
+
+    @include theme.min-width(lg) {
+      box-shadow: inset -1px 0 0 theme.$dark-400;
+    }
+  }
+
+  nav {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 72px);
+    background-color: theme.$light-500;
+    transform: translateX(-100%);
+
+    // TODO: fix becameMobile & open bug
+    &.becameMobile {
+      max-width: calc(256px - 3rem);
+      transition: none;
+    }
+
+    @include theme.min-width(lg) {
+      position: static;
+      width: auto !important;
+      box-shadow: inset -1px 0 0 0 theme.$dark-400;
+      transform: translateX(0);
+    }
+  }
+
+  &.open nav {
+    overflow: scroll;
+    transform: translateX(0);
+
+    &.becameMobile {
+      max-width: 100%;
+    }
   }
 
   ul {
     margin-bottom: 1.5rem;
+
+    @include theme.min-width(lg) {
+      display: block;
+    }
 
     li {
       display: flex;
@@ -18,40 +62,68 @@
         margin-bottom: 0.25rem;
       }
     }
+  }
 
-    a {
-      width: 100%;
-      padding: 0.5rem;
-      border-radius: 4px;
-      font-size: 0.875rem;
+  ul a {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
 
+    &:hover {
+      background-color: theme.$atom-one-light-primary-500;
+    }
+
+    &:focus {
+      box-shadow: inset 0 0 0 1px theme.$dark-500;
+    }
+
+    &.active {
+      background-color: theme.$atom-one-light-primary-400;
+
+      &:focus {
+        box-shadow: inset 0 0 0 1px theme.$dark-500;
+      }
+    }
+  }
+
+  h4 {
+    padding: 0.75rem 0;
+  }
+}
+
+:global(.dark) {
+  .sidebar {
+    nav {
+      background-color: theme.$dark-500;
+    }
+
+    ul a {
       &:hover {
         background-color: theme.$atom-one-dark-primary-500;
       }
 
       &:focus {
-        box-shadow: inset 0 0 0 1px red;
+        box-shadow: inset 0 0 0 1px theme.$light-500;
       }
 
       &.active {
         background-color: theme.$atom-one-dark-primary-400;
 
         &:focus {
-          // TODO: Choose border color and fix the box-shadow border from overflowing
-          box-shadow: inset 0 0 0 2px theme.$atom-one-dark-primary-400, inset 0 0 0 3px red;
+          box-shadow: inset 0 0 0 1px theme.$light-500;
         }
       }
     }
   }
-
-  h4 {
-    margin-bottom: 0.75rem;
-  }
-
-  @include theme.min-width(lg) {
-    display: block;
-  }
 }
 
-// :global(.dark) {
-// }
+@media screen and(prefers-reduced-motion: no-preference) {
+  .sidebar nav {
+    transition: transform 300ms ease-in-out;
+
+    @include theme.min-width(lg) {
+      transition: none;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@use 'theme';
+
+.themeToggle {
+  display: flex;
+  padding: 2px;
+  border: none;
+  background-color: transparent;
+  border-radius: 4px;
+  color: theme.$light-600;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: theme.$dark-500;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 1px theme.$dark-500;
+  }
+}
+
+:global(.dark) .themeToggle {
+  color: theme.$light-400;
+
+  &:hover,
+  &:focus {
+    color: #fff;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 1px theme.$light-500;
+  }
+}

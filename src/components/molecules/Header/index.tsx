@@ -1,28 +1,39 @@
 import Link from 'next/link';
-import { ReactNode } from 'react';
+import { Dispatch, ReactNode, SetStateAction } from 'react';
 
+import Hamburger from '../../atoms/Hamburger';
+import ThemeToggle from '../../atoms/ThemeToggle';
 import Logo from '../../icons/Logo';
-import ThemeToggle from '../ThemeToggle';
 import styles from './header.module.scss';
 
-interface Props {
-  children?: ReactNode;
+interface DocumentationProps {
+  isSidebarOpen: boolean;
+  setIsSidebarOpen: Dispatch<SetStateAction<boolean>>;
+  variant: 'documentation';
 }
 
-const Header = ({ children }: Props) => {
-  return (
-    <header className={styles.header}>
-      <Link href="/">
-        <a className={styles.branding} aria-label="Home">
-          <Logo />
-        </a>
-      </Link>
-      <div className={styles.siteNavigation}>
-        {children ? <nav>{children}</nav> : null}
-        <ThemeToggle />
-      </div>
-    </header>
-  );
-};
+interface LandingProps {
+  children: ReactNode;
+  variant: 'landing';
+}
+
+type Props = DocumentationProps | LandingProps;
+
+const Header = (props: Props) => (
+  <header className={styles.header}>
+    <Link href="/">
+      <a className={styles.branding} aria-label="Home">
+        <Logo />
+      </a>
+    </Link>
+    <div className={styles.siteNavigation}>
+      {props.variant === 'landing' && <nav>{props.children}</nav>}
+      <ThemeToggle />
+      {props.variant === 'documentation' && (
+        <Hamburger isSidebarOpen={props.isSidebarOpen} setIsSidebarOpen={props.setIsSidebarOpen} />
+      )}
+    </div>
+  </header>
+);
 
 export default Header;

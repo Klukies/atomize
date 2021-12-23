@@ -9,12 +9,10 @@
   }
 
   @include theme.min-width(xl) {
-    max-width: 1024px;
+    max-width: 80rem;
   }
 
   > div {
-    box-shadow: inset -1px 0 0 0 theme.$dark-400;
-
     @include theme.min-width(lg) {
       position: fixed;
       left: 0;
@@ -23,7 +21,7 @@
 
     @include theme.min-width(xl) {
       position: static;
-      left: auto;
+      width: 312px;
     }
   }
 

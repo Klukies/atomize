@@ -1,19 +1,27 @@
-import { MouseEventHandler } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 
-import Close from '../../icons/Close';
-import Menu from '../../icons/Menu';
+import { PRIMARY_NAVIGATION } from '../../molecules/Sidebar';
+import styles from './hamburger.module.scss';
 
 type Props = {
-  isOpen: boolean;
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  isSidebarOpen: boolean;
+  setIsSidebarOpen: Dispatch<SetStateAction<boolean>>;
 };
 
-const Hamburger = ({ isOpen, onClick }: Props) => {
-  const ariaLabel = `${isOpen ? 'Open' : 'Close'} menu`;
-
+const Hamburger = ({ isSidebarOpen, setIsSidebarOpen }: Props) => {
   return (
-    <button onClick={onClick} aria-label={ariaLabel}>
-      {isOpen ? <Close /> : <Menu />}
+    <button
+      aria-controls={PRIMARY_NAVIGATION}
+      aria-expanded={isSidebarOpen}
+      aria-label="Toggle sidebar"
+      className={`${styles.hamburger} ${isSidebarOpen ? styles.active : ''}`}
+      onClick={() => setIsSidebarOpen((prevState) => !prevState)}
+    >
+      <i className={styles.wrapper}>
+        <span />
+        <span />
+        <span />
+      </i>
     </button>
   );
 };

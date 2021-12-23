@@ -5,6 +5,7 @@
 body,
 a {
   color: theme.$dark-500;
+  line-height: 1.25;
 }
 
 body {
@@ -15,12 +16,6 @@ a {
   color: inherit;
   outline: none;
   text-decoration: none;
-}
-
-input[type='checkbox'] {
-  width: 24px;
-  height: 24px;
-  margin: 0;
 }
 
 .dark {

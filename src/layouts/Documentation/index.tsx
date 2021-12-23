@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 
 import Sidebar from '../../components/molecules/Sidebar';
 import styles from './documentation.module.scss';
@@ -8,9 +8,13 @@ type Props = {
 };
 
 const Documentation = ({ children }: Props) => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => setIsClient(true), []);
+
   return (
     <div className={styles.documentation}>
-      <Sidebar />
+      {isClient && <Sidebar />}
       <main>
         <article>{children}</article>
       </main>
