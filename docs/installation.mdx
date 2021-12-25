@@ -3,25 +3,49 @@ title: Installation
 description: How to install Cookie Though and get up and running.
 ---
 
-{/* TODO: add a Tab component */}
+It's important to note that Cookie Though only saves the preferences. Implementing the cookies
+should be handled by you! In order to aid with this, we have written some tutorials for different
+types of applications, which can be viewed [here](/docs/tutorials)
 
-## Installation through a CDN
+### Install Cookie Though
 
-Cookie though is packaged to be used directly in the browser, which means it doesn't require any build or tools:
+Install Cookie Though through npm or yarn.
 
-{/* TODO: add a Code component */}
+```console
+# With npm
+npm install cookie-though
+
+# With yarn
+yarn add cookie-though
+```
+
+### Import it
+
+Installing Cookie Though from your terminal.
+Import `init` from `cookie-though`.
+
+```js
+import { init } from 'cookie-though';
+```
+
+### Initialise it
+
+Initialise the plugin with the `init` function to render Cookie Though.
+
+```js line3
+import { init } from 'cookie-though';
+
+init();
+```
+
+## Using Cookie Though through a CDN
+
+If you're not using a package manager, you can add Cookie Though to your site ushing a `script` tag.
 
 ```html
 <script type="module">
-  import { init } from 'https://unpkg.com/cookie-though';
+  import { init } from  'https://cookiethough.dev/lib/<version'>
 
-  // Initialise the library with or without a configuration
   init();
 </script>
 ```
-
-Install Cookie Though from your terminal via npm or yarn.
-
-## Installation through a package manager
-
-Install Cookie Though from your terminal via npm or yarn.

@@ -24,20 +24,43 @@
       width: 312px;
     }
   }
+}
 
-  & main {
-    width: 100%;
-    padding: 1.5rem;
+.documentation > main {
+  width: 100%;
+  padding: 1.5rem;
 
-    @include theme.min-width(lg) {
-      padding: 72px 1.5rem 72px calc(256px + 1.5rem);
-      margin: auto;
-    }
+  @include theme.min-width(lg) {
+    padding: 72px 1.5rem 72px calc(256px + 1.5rem);
+    margin: auto;
+  }
 
-    @include theme.min-width(xl) {
-      max-width: 768px;
-      padding: 72px 1.5rem;
-      margin: 0;
+  @include theme.min-width(xl) {
+    max-width: 768px;
+    padding: 72px 1.5rem;
+    margin: 0;
+  }
+
+  h1 {
+    margin-bottom: 0.75rem;
+  }
+
+  h2,
+  h3 {
+    margin-top: 2.5rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    line-height: 1.75rem;
+  }
+
+  header {
+    margin-bottom: 2.5rem;
+
+    > p {
+      color: theme.$atom-one-dark-mono-1;
+      font-size: 1.125rem;
     }
   }
 }

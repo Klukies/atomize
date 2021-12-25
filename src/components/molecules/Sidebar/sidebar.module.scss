@@ -3,6 +3,12 @@
 .sidebar {
   height: 100%;
 
+  @include theme.min-width(lg) {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
   & > * {
     padding: 0 1.5rem;
   }
@@ -25,7 +31,6 @@
     background-color: theme.$light-500;
     transform: translateX(-100%);
 
-    // TODO: fix becameMobile & open bug
     &.becameMobile {
       max-width: calc(256px - 3rem);
       transition: none;
@@ -34,13 +39,14 @@
     @include theme.min-width(lg) {
       position: static;
       width: auto !important;
+      flex: 1;
       box-shadow: inset -1px 0 0 0 theme.$dark-400;
       transform: translateX(0);
     }
   }
 
   &.open nav {
-    overflow: scroll;
+    overflow: auto;
     transform: translateX(0);
 
     &.becameMobile {

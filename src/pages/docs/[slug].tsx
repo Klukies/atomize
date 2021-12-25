@@ -2,6 +2,7 @@ import { getMDXComponent } from 'mdx-bundler/client';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useMemo } from 'react';
 
+import components from '../../components/mdxComponents';
 import { Frontmatter, getDoc, getDocs } from '../../utils/mdx';
 
 type Props = {
@@ -15,8 +16,12 @@ const Doc = ({ frontmatter, code }: Props) => {
 
   return (
     <>
-      <h1>{frontmatter.title}</h1>
-      <p>{frontmatter.description}</p>
+      <header>
+        <h1>{frontmatter.title}</h1>
+        <p>{frontmatter.description}</p>
+      </header>
+
+      <Component components={components} />
     </>
   );
 };
