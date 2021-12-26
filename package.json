@@ -14,11 +14,11 @@
     "start": "next start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d out",
-    "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
+    "lint": "eslint '**/*.{js,jsx,ts,tsx,mdx}'",
     "lint:fix": "npm run lint -- --fix",
     "lint:markdown": "markdownlint '**/*.md' -i node_modules -i CHANGELOG.md",
     "prepare": "./scripts/postinstall-local.sh",
-    "prettier": "prettier \"**/*.{js,ts,tsx,css}\"",
+    "prettier": "prettier \"**/*.{js,ts,tsx,mdx,css}\"",
     "prettier:fix": "npm run prettier -- --write",
     "release": "standard-version",
     "stylelint": "stylelint 'src/**/*.{css,scss}'",
@@ -50,6 +50,7 @@
     "eslint-config-next": "^12.0.7",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-mdx": "^1.16.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "fetch-mock-jest": "^1.5.1",
@@ -84,7 +85,6 @@
     "extends": [
       "eslint:recommended",
       "plugin:@typescript-eslint/recommended",
-      "plugin:@typescript-eslint/recommended-requiring-type-checking",
       "next",
       "next/core-web-vitals",
       "plugin:import/typescript",
@@ -96,6 +96,19 @@
       "next-i18next.config.js",
       "next.config.js",
       "out"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "*.ts",
+          "*.tsx"
+        ],
+        "extends": "plugin:@typescript-eslint/recommended-requiring-type-checking"
+      },
+      {
+        "files": "*.mdx",
+        "extends": "plugin:mdx/recommended"
+      }
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
