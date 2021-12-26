@@ -1,7 +1,9 @@
----
-title: Installation
-description: How to install Cookie Though and get up and running.
----
+import Layout from '../../layouts/Documentation';
+
+export const frontmatter = {
+  title: 'Installation',
+  description: 'How to install Cookie Though and get up and running.',
+};
 
 It's important to note that Cookie Though only saves the preferences. Implementing the cookies
 should be handled by you! In order to aid with this, we have written some tutorials for different
@@ -11,7 +13,7 @@ types of applications, which can be viewed [here](/docs/tutorials)
 
 Install Cookie Though through npm or yarn.
 
-```console
+```shell
 # With npm
 npm install cookie-though
 
@@ -22,7 +24,7 @@ yarn add cookie-though
 ### Import it
 
 Installing Cookie Though from your terminal.
-Import `init` from `cookie-though`.
+Import `init(){:js}` from `'cookie-though'{:js}`.
 
 ```js
 import { init } from 'cookie-though';
@@ -30,9 +32,9 @@ import { init } from 'cookie-though';
 
 ### Initialise it
 
-Initialise the plugin with the `init` function to render Cookie Though.
+Initialise the plugin with the `init(){:js}` function to render Cookie Though.
 
-```js line3
+```js
 import { init } from 'cookie-though';
 
 init();
@@ -40,7 +42,7 @@ init();
 
 ## Using Cookie Though through a CDN
 
-If you're not using a package manager, you can add Cookie Though to your site ushing a `script` tag.
+If you're not using a package manager, you can add Cookie Though to your site using a `<script>{:html}` tag.
 
 ```html
 <script type="module">
@@ -49,3 +51,7 @@ If you're not using a package manager, you can add Cookie Though to your site us
   init();
 </script>
 ```
+
+export default function render({ children }) {
+  return <Layout frontmatter={frontmatter}>{children}</Layout>;
+}

@@ -18,6 +18,14 @@ a {
   text-decoration: none;
 }
 
+pre {
+  padding: 0.75rem;
+  border: 1px solid theme.$dark-400;
+  background-color: theme.$atom-one-dark-base;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
 .dark {
   body {
     background-color: theme.$dark-500;

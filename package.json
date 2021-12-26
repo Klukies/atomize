@@ -28,15 +28,16 @@
     "test:ci": "jest --coverage --ci"
   },
   "dependencies": {
-    "glob": "^7.2.0",
-    "gray-matter": "^4.0.3",
-    "mdx-bundler": "^8.0.0",
+    "@atomiks/mdx-pretty-code": "^0.0.4",
+    "@mdx-js/loader": "^1.6.22",
+    "@next/mdx": "^12.0.7",
     "next": "^12.0.7",
     "next-themes": "^0.0.15",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-use": "^17.3.1",
-    "sass": "^1.45.0"
+    "sass": "^1.45.0",
+    "shiki": "^0.9.15"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.1",
@@ -113,6 +114,9 @@
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
       "ecmaVersion": 12,
+      "extraFileExtensions": [
+        ".mjs"
+      ],
       "sourceType": "module",
       "project": "./tsconfig.json"
     },

@@ -4,10 +4,14 @@ import Sidebar from '../../components/molecules/Sidebar';
 import styles from './documentation.module.scss';
 
 type Props = {
+  frontmatter: {
+    title: string;
+    description: string;
+  };
   children?: ReactNode;
 };
 
-const Documentation = ({ children }: Props) => {
+const Documentation = ({ frontmatter, children }: Props) => {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => setIsClient(true), []);
@@ -16,7 +20,14 @@ const Documentation = ({ children }: Props) => {
     <div className={styles.documentation}>
       {isClient && <Sidebar />}
       <main>
-        <article>{children}</article>
+        <article>
+          <header>
+            <h1>{frontmatter.title}</h1>
+            <p>{frontmatter.description}</p>
+          </header>
+
+          {children}
+        </article>
       </main>
     </div>
   );

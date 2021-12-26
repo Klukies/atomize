@@ -50,6 +50,14 @@
     margin-top: 2.5rem;
   }
 
+  h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  h3 {
+    margin-bottom: 0.25rem;
+  }
+
   p {
     margin-bottom: 1rem;
     line-height: 1.75rem;
@@ -59,8 +67,16 @@
     margin-bottom: 2.5rem;
 
     > p {
-      color: theme.$atom-one-dark-mono-1;
+      color: theme.$atom-one-light-mono-1;
       font-size: 1.125rem;
+    }
+  }
+}
+
+:global(.dark) .documentation > main {
+  header {
+    > p {
+      color: theme.$atom-one-dark-mono-1;
     }
   }
 }

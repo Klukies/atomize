@@ -4,7 +4,6 @@ import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { ThemeProvider } from 'next-themes';
 
-import Documentation from '../layouts/Documentation';
 import Landing from '../layouts/Landing';
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -14,9 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute="class">
       {isDocs ? (
-        <Documentation>
-          <Component {...pageProps} />
-        </Documentation>
+        <Component {...pageProps} />
       ) : (
         <Landing>
           <Component {...pageProps} />
