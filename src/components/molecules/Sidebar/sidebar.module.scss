@@ -4,9 +4,18 @@
   height: 100%;
 
   @include theme.min-width(lg) {
+    position: fixed;
+    left: 0;
     display: flex;
+    width: 256px;
     min-height: 100vh;
     flex-direction: column;
+  }
+
+  @include theme.min-width(xl) {
+    position: sticky;
+    top: 0;
+    width: 312px;
   }
 
   & > * {
@@ -27,7 +36,6 @@
     top: 72px;
     left: 0;
     width: 100%;
-    height: calc(100% - 72px);
     background-color: theme.$light-500;
     transform: translateX(-100%);
 
@@ -38,7 +46,9 @@
 
     @include theme.min-width(lg) {
       position: static;
+      overflow: auto;
       width: auto !important;
+      max-height: calc(100vh - 76px);
       flex: 1;
       box-shadow: inset -1px 0 0 0 theme.$dark-400;
       transform: translateX(0);

@@ -11,19 +11,6 @@
   @include theme.min-width(xl) {
     max-width: 80rem;
   }
-
-  > div {
-    @include theme.min-width(lg) {
-      position: fixed;
-      left: 0;
-      width: 256px;
-    }
-
-    @include theme.min-width(xl) {
-      position: static;
-      width: 312px;
-    }
-  }
 }
 
 .documentation > main {
