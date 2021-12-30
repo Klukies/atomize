@@ -1,0 +1,74 @@
+@use 'reset';
+@use 'theme';
+@use 'typography';
+
+body,
+a {
+  color: theme.$dark-500;
+  line-height: 1.25;
+}
+
+body {
+  background-color: theme.$light-500;
+}
+
+a {
+  color: inherit;
+  outline: none;
+  text-decoration: none;
+}
+
+pre,
+[data-mdx-pretty-code] {
+  border: 1px solid theme.$dark-500;
+  background-color: theme.$atom-one-dark-base;
+  border-radius: 4px;
+}
+
+pre {
+  padding: 0.75rem;
+  background-color: theme.$atom-one-dark-base;
+  overflow-x: auto;
+}
+
+[data-mdx-pretty-code] {
+  padding: 0.125rem 0;
+  border-radius: 4px;
+
+  ::selection {
+    background: #67769660;
+  }
+
+  &::before,
+  &::after {
+    content: ' ';
+    white-space: pre;
+  }
+}
+
+.dark {
+  body {
+    background-color: theme.$dark-500;
+  }
+
+  body,
+  a {
+    color: theme.$light-500;
+  }
+
+  pre {
+    border-color: theme.$dark-400;
+  }
+
+  [data-mdx-pretty-code] {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+
+    &::before,
+    &::after {
+      content: '';
+      white-space: normal;
+    }
+  }
+}
