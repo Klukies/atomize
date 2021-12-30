@@ -1,107 +1,62 @@
-# Team Spacebar Next Boilerplate
+# Atomize
 
-The boilerplate used by Team Spacebar to create Next.js applications
+A static documentation site generator based on the Atom One [Dark](https://github.com/atom/atom/tree/master/packages/one-dark-ui) & [Light](https://github.com/atom/atom/tree/master/packages/one-light-ui) theme.
 
-## Introduction
+## Features:
 
-This project contains everything needed to start developing a Next.js
-application with [React](https://reactjs.org/) & [TypeScript](https://www.typescriptlang.org/).
+- 📃 Write docs with [.mdx](https://mdxjs.com/)
+- 🌜 Dark mode support with [next-themes](https://github.com/pacocoursey/next-themes)
+- ✏️ Automatic code highlighting of code blocks and inline code snippets with [shiki](https://github.com/shikijs/shiki) and [mdx-pretty-code](https://github.com/atomiks/mdx-pretty-code)
+- 🚢 Easy deployment to GitHub pages with GitHub Actions
 
-## Getting Started
+This project contains everything needed to start creating a beautifull documentation site.
 
-### Prerequisites
+## Installation
 
-- [Node.JS](https://nodejs.org/en/)
-- [pre-commit](https://pre-commit.com/)
+> Atomize requires Node >= 14
 
-It is important to note that a postinstall script will run after the
-installation process in order to install the pre-commit hook. If you
-(the developer) do not have this installed, it will try to install pre-commit
-using [brew](https://brew.sh/).
+### GitHub Template
 
-For windows devices, this can be installed using [Conda](https://docs.conda.io/en/latest/).
-If a developer makes use of this, please be so kind to update the
-[postinstall-local.sh](scripts/postinstall-local.sh) script 😊.
+[Create a reopo from this template on GitHub](https://github.com/LukasCornille/atomize/generate)
 
-### Installation proces
+### Clone to local
 
-- Clone this repository
-- Run `npm install` to install the required dependencies
-- Run `npm run dev` to get a working example at localhost:3000
+You can also use [create-next-app](https://nextjs.org/docs/api-reference/create-next-app) with:
 
-## Building and Testing
+```shell
+# With npm
+npx create-next-app -e https://github.com/LukasCornille/atomize
 
-### Testing the application
-
-In order to test both the server and the client, this boilerplate makes use of
-[Jest](https://jestjs.io/) and [Cypress](https://docs.cypress.io) to test the
-application. To make it easier for developers however, all tests reside within
-the `__tests__` folder.
-
-#### Unit Tests
-
-Jest is used (with [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/))
-to test the React components that are consumed by Next and test the api routes
-that are available by Next. To run these tests you can use the following
-commands:
-
-```console
-npm run test
-
-npm run test:coverage
+# With yarn
+yarn create next-app -e https://github.com/LukasCornille/atomize
 ```
 
-#### End-to-End Tests
+## Checklist
 
-Cypress is used to test the pages that are generated with Next. This allows us
-To run the server completely and get a better view of how the user would
-interact with the application. To run the tests you can use the following
-commands (coverage is gathered automatically):
+After you've created a new project, follow these steps to ensure to update the project' info with this checklist
 
-```console
-# Run the tests from the terminal
-npm run cy:run
+- [ ] Change the author name in `LICENSE`
+- [ ] Change the title in `index.tsx`
+- [ ] Change the favicon in public
+- [ ] Enable [GitHub pages](https://docs.github.com/en/pages/quickstart) for your repo
+- [ ] Clean up the README and pages
 
-# Open a GUI that allows you to run the tests
-npm run cy:open
+That's it, have fun!
+
+## Usage
+
+### Development
+
+Run the following command and visit [http://localhost:3000](http://localhost:3000)
+
+```shell
+npm run dev
 ```
 
-After the tests have run, you can view a video of each test in the
-`cypress/videos` folder.
+### Production
 
-### Building the application
+To get a working production site run:
 
-In order to get a production ready build, you can run the following command:
-
-```console
+```shell
 npm run build
 ```
-
-## Contributing
-
-### Branching
-
-In order to contribute to this project, clone the project and create a new
-branch. The name of the branch doesn't matter much as we follow fast-forward
-merging.
-
-### Commits
-
-Try to keep commits as contained as possible. In order for your commit message
-to pass with commitlint make sure to adhere
-[the conventional commit standard](https://www.conventionalcommits.org/en/v1.0.0/).
-
-### Merge Requests
-
-When you're finished with your changes, you can create a PR following [these standards](https://confluence.itpservices.be/pages/viewpage.action?pageId=16714118).
-
-**Make sure to follow the coding standards provided with ESLint, Prettier and MarkdownLint!**
-
-### Releasing a new version
-
-As we are making use of conventional commits, it is important to release a new
-version each time a change is made to this repository. This allows for a clean
-overview of what has changed over time.
-
-To release a new version run
-`npm run release -- --release-as {patch|minor|major}` to release a new version.
