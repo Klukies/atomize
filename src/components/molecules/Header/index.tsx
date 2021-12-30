@@ -1,9 +1,9 @@
+import Logo from '@assets/icons/logo.svg';
+import Hamburger from '@components/atoms/Hamburger';
+import ThemeToggle from '@components/atoms/ThemeToggle';
 import Link from 'next/link';
 import { Dispatch, ReactNode, SetStateAction } from 'react';
 
-import Hamburger from '../../atoms/Hamburger';
-import ThemeToggle from '../../atoms/ThemeToggle';
-import Logo from '../../icons/Logo';
 import styles from './header.module.scss';
 
 interface DocumentationProps {

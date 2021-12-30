@@ -1,7 +1,7 @@
+import Moon from '@assets/icons/moon.svg';
+import Sun from '@assets/icons/sun.svg';
 import { useTheme } from 'next-themes';
 
-import Moon from '../../icons/Moon';
-import Sun from '../../icons/Sun';
 import styles from './themeToggle.module.scss';
 
 const ThemeToggle = () => {
@@ -15,7 +15,7 @@ const ThemeToggle = () => {
       value={theme}
       onClick={() => setTheme(isLight ? 'dark' : 'light')}
     >
-      {isLight ? <Sun /> : <Moon />}
+      {isLight ? <Sun role="presentation" /> : <Moon role="presentation" />}
     </button>
   );
 };

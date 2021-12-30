@@ -1,7 +1,7 @@
+import Header from '@components/molecules/Header';
 import Link from 'next/link';
 import { ReactNode } from 'react';
 
-import Header from '../../components/molecules/Header';
 import styles from './landing.module.scss';
 
 type Props = {

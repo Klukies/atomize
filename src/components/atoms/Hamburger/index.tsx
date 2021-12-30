@@ -1,6 +1,6 @@
+import { primaryNavigation } from '@components/molecules/Sidebar';
 import { Dispatch, SetStateAction } from 'react';
 
-import { PRIMARY_NAVIGATION } from '../../molecules/Sidebar';
 import styles from './hamburger.module.scss';
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
 const Hamburger = ({ isSidebarOpen, setIsSidebarOpen }: Props) => {
   return (
     <button
-      aria-controls={PRIMARY_NAVIGATION}
+      aria-controls={primaryNavigation}
       aria-expanded={isSidebarOpen}
       aria-label="Toggle sidebar"
       className={`${styles.hamburger} ${isSidebarOpen ? styles.active : ''}`}

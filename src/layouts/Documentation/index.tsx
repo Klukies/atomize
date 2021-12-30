@@ -1,6 +1,8 @@
+import components from '@components/mdx';
+import Sidebar from '@components/molecules/Sidebar';
+import { MDXProvider } from '@mdx-js/react';
 import { ReactNode, useEffect, useState } from 'react';
 
-import Sidebar from '../../components/molecules/Sidebar';
 import styles from './documentation.module.scss';
 
 type Props = {
@@ -26,7 +28,7 @@ const Documentation = ({ frontmatter, children }: Props) => {
             <p>{frontmatter.description}</p>
           </header>
 
-          {children}
+          <MDXProvider components={components}>{children}</MDXProvider>
         </article>
       </main>
     </div>

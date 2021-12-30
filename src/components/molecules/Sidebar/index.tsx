@@ -7,12 +7,12 @@ import Header from '../Header';
 import docRoutes from './docRoutes';
 import styles from './sidebar.module.scss';
 
-export const PRIMARY_NAVIGATION = 'primary-navigation';
+export const primaryNavigation = 'primary-navigation';
 
 const useBreakpoint = createBreakpoint({ desktop: 900, mobile: 0 });
 
 const Sidebar = () => {
-  const { asPath } = useRouter();
+  const { route } = useRouter();
   const breakpoint = useBreakpoint();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [becameMobile, setBecameMobile] = useState(false);
@@ -38,7 +38,7 @@ const Sidebar = () => {
         setIsSidebarOpen={setIsSidebarOpen}
         variant="documentation"
       />
-      <nav id={PRIMARY_NAVIGATION} className={becameMobile ? styles.becameMobile : ''}>
+      <nav id={primaryNavigation} className={becameMobile ? styles.becameMobile : ''}>
         {docRoutes.map(({ label, routes }, i) => (
           <ul key={i} aria-labelledby={`nav-section-${i}`}>
             <h4 id={label}>{label}</h4>
@@ -47,7 +47,7 @@ const Sidebar = () => {
                 {isExternal ? (
                   <a
                     href={href}
-                    className={asPath === href ? styles.active : undefined}
+                    className={route === href ? styles.active : undefined}
                     target="_blank"
                     rel="noreferrer noopener"
                   >
@@ -55,7 +55,7 @@ const Sidebar = () => {
                   </a>
                 ) : (
                   <Link href={href}>
-                    <a className={asPath === href ? styles.active : undefined}>{label}</a>
+                    <a className={route === href ? styles.active : undefined}>{label}</a>
                   </Link>
                 )}
               </li>

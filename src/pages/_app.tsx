@@ -1,4 +1,4 @@
-import '../scss/app.scss';
+import '@assets/scss/app.scss';
 
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
