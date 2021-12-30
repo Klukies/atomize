@@ -18,7 +18,7 @@
     "lint:fix": "npm run lint -- --fix",
     "lint:markdown": "markdownlint '**/*.md' -i node_modules -i CHANGELOG.md",
     "prepare": "./scripts/postinstall-local.sh",
-    "prettier": "prettier \"**/*.{js,ts,tsx,mdx,css}\"",
+    "prettier": "prettier \"src/**/*.{js,ts,tsx,mdx,css,svg}\"",
     "prettier:fix": "npm run prettier -- --write",
     "release": "standard-version",
     "stylelint": "stylelint 'src/**/*.{css,scss}'",
@@ -37,13 +37,16 @@
     "react-dom": "^17.0.2",
     "react-use": "^17.3.1",
     "sass": "^1.45.0",
-    "shiki": "^0.9.15"
+    "shiki": "^0.10.0"
   },
   "devDependencies": {
+    "@prettier/plugin-xml": "^1.2.0",
+    "@svgr/webpack": "^6.1.2",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@types/glob": "^7.2.0",
     "@types/jest": "^27.0.3",
+    "@types/mdx-js__react": "^1.5.5",
     "@types/react": "^17.0.37",
     "@typescript-eslint/eslint-plugin": "^5.8.0",
     "@typescript-eslint/parser": "^5.8.0",
@@ -140,7 +143,6 @@
   "jest": {
     "collectCoverageFrom": [
       "<rootDir>/src/components/**/*.{ts,tsx}",
-      "<rootDir>/src/pages/api/**/*.{ts,tsx}",
       "!**/*.d.ts"
     ],
     "coverageReporters": [
@@ -184,12 +186,6 @@
     "printWidth": 100,
     "tabWidth": 2,
     "trailingComma": "all"
-  },
-  "renovate": {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": [
-      "team-spacebar/tools/renovate-cli"
-    ]
   },
   "standard-version": {
     "types": [

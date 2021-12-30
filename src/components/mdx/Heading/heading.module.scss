@@ -1,0 +1,20 @@
+@use 'theme';
+
+.heading {
+  scroll-margin-top: 1.5rem;
+
+  > a {
+    display: flex;
+    align-items: center;
+
+    > svg {
+      margin-left: 0.5rem;
+      fill: theme.$atom-one-dark-mono-2;
+      opacity: 0;
+    }
+
+    &:hover > svg {
+      opacity: 1;
+    }
+  }
+}
