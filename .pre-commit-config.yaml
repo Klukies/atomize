@@ -43,13 +43,3 @@ repos:
         files: \.(css|scss|sass)$
         stages:
           - commit
-
-      - id: markdownlint
-        name: Lint Markdown documentation
-        entry: ./node_modules/.bin/markdownlint
-        language: script
-        files: \.md$
-        types: [file]
-        args: [-i, CHANGELOG.md]
-        stages:
-          - commit
