@@ -5,7 +5,12 @@ const fs = require('fs');
 const getTheme = (path) => JSON.parse(fs.readFileSync(require.resolve(path), 'utf-8'));
 
 const prettyCode = createRemarkPlugin({
-  shikiOptions: { theme: getTheme('./src/assets/themes/OneDark-Pro.json') },
+  shikiOptions: {
+    theme: {
+      dark: getTheme('./src/assets/themes/OneDark-Pro.json'),
+      light: getTheme('./src/assets/themes/OneLight.json'),
+    },
+  },
 });
 
 const withMDX = require('@next/mdx')({
