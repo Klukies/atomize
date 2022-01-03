@@ -10,12 +10,15 @@
   cursor: pointer;
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:focus-visible {
     color: theme.$dark-500;
   }
 
-  &:focus {
+  &:focus,
+  &:focus-visible {
     box-shadow: 0 0 0 1px theme.$dark-500;
+    outline: none;
   }
 }
 
@@ -23,11 +26,13 @@
   color: theme.$light-400;
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:focus-visible {
     color: #fff;
   }
 
-  &:focus {
+  &:focus,
+  &:focus-visible {
     box-shadow: 0 0 0 1px theme.$light-500;
   }
 }

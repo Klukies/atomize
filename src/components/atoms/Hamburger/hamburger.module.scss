@@ -44,13 +44,16 @@
   }
 
   &:hover .wrapper span,
-  &:focus .wrapper span {
+  &:focus .wrapper span,
+  &:focus-visible .wrapper span {
     background-color: theme.$dark-500;
   }
 
   &:focus,
+  &:focus-visible,
   &.active {
     box-shadow: 0 0 0 1px theme.$dark-500;
+    outline: none;
 
     .wrapper span {
       background-color: theme.$dark-500;
@@ -93,11 +96,13 @@
   }
 
   &:hover .wrapper span,
-  &:focus .wrapper span {
+  &:focus .wrapper span,
+  &:focus-visible .wrapper span {
     background-color: #fff;
   }
 
   &:focus,
+  &:focus-visible,
   &.active {
     box-shadow: 0 0 0 1px theme.$light-500;
 
