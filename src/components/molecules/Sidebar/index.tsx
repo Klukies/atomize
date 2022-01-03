@@ -55,7 +55,7 @@ const Sidebar = () => {
                   </a>
                 ) : (
                   <Link href={href}>
-                    <a className={route === href ? styles.active : undefined}>{label}</a>
+                    <a aria-current={route === href ? 'page' : undefined}>{label}</a>
                   </Link>
                 )}
               </li>
