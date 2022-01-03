@@ -25,11 +25,18 @@ const Sidebar = () => {
     if (becameMobile) setTimeout(() => setBecameMobile(false), 300);
   }, [becameMobile]);
 
-  useEffect(() => {
-    isSidebarOpen
-      ? (document.body.style.overflow = 'hidden')
-      : document.body.removeAttribute('style');
-  }, [isSidebarOpen]);
+  const toggleScroll = (isSidebarOpen: boolean) => {
+    if (isSidebarOpen) {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+      return;
+    }
+
+    document.body.removeAttribute('style');
+    document.documentElement.removeAttribute('style');
+  };
+
+  useEffect(() => toggleScroll(isSidebarOpen), [isSidebarOpen]);
 
   return (
     <div className={`${styles.sidebar} ${isSidebarOpen ? styles.open : ''}`}>
