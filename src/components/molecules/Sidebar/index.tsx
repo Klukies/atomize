@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useLayoutEffect, useState } from 'react';
-import { createBreakpoint } from 'react-use';
+import { createBreakpoint, useWindowSize } from 'react-use';
 
 import Header from '../Header';
 import docRoutes from './docRoutes';
@@ -12,6 +12,7 @@ export const primaryNavigation = 'primary-navigation';
 const useBreakpoint = createBreakpoint({ desktop: 900, mobile: 0 });
 
 const Sidebar = () => {
+  const { height } = useWindowSize();
   const { route } = useRouter();
   const breakpoint = useBreakpoint();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -26,10 +27,16 @@ const Sidebar = () => {
   }, [becameMobile]);
 
   useEffect(() => {
-    isSidebarOpen
-      ? (document.body.style.overflow = 'hidden')
-      : document.body.removeAttribute('style');
-  }, [isSidebarOpen]);
+    if (isSidebarOpen) {
+      document.documentElement.style.overflow = 'hidden';
+      document.documentElement.style.height = `${height}px`;
+      document.body.style.overflow = 'hidden';
+      document.body.style.height = `${height}px`;
+    } else {
+      document.documentElement.removeAttribute('style');
+      document.body.removeAttribute('style');
+    }
+  }, [height, isSidebarOpen]);
 
   return (
     <div className={`${styles.sidebar} ${isSidebarOpen ? styles.open : ''}`}>

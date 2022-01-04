@@ -21,7 +21,7 @@ const Heading = ({ Tag, children }: Props) => {
       <Link href={`#${slug}`}>
         <a>
           {children}
-          <LinkIcon width="1rem" height="1rem" viewBox="0 0 20 20" />
+          <LinkIcon width="16" height="16" viewBox="0 0 20 20" />
         </a>
       </Link>
     </Tag>
