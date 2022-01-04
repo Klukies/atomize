@@ -21,7 +21,11 @@
     transform: none;
   }
 
-  .wrapper span {
+  &[aria-expanded='true'] .wrapper {
+    transform: rotate(-90deg);
+  }
+
+  span {
     position: absolute;
     display: block;
     width: 15px;
@@ -43,28 +47,26 @@
     }
   }
 
-  &:hover .wrapper span,
-  &:focus .wrapper span,
-  &:focus-visible .wrapper span {
-    background-color: theme.$dark-500;
-  }
-
-  &:focus,
-  &:focus-visible,
-  &.active {
-    box-shadow: 0 0 0 1px theme.$dark-500;
-    outline: none;
-
-    .wrapper span {
+  &:hover,
+  &:focus {
+    span {
       background-color: theme.$dark-500;
     }
   }
 
-  &.active .wrapper {
-    transform: rotate(-90deg);
+  &:focus,
+  &[aria-expanded='true'] {
+    box-shadow: 0 0 0 1px theme.$dark-500;
+    outline: none;
 
+    span {
+      background-color: theme.$dark-500;
+    }
+  }
+
+  &[aria-expanded='true'] {
     span:first-of-type {
-      height: 2.25px;
+      height: 2px;
       transform: rotate(-45deg) translate(-3.6px, 3.6px);
     }
 
@@ -89,25 +91,24 @@
   }
 }
 
-:global(.dark) .hamburger {
-  /* stylelint-disable-next-line no-descending-specificity */
-  .wrapper span {
-    background-color: theme.$light-400;
-  }
+:global(.dark) {
+  .hamburger {
+    /* stylelint-disable-next-line no-descending-specificity */
+    span {
+      background-color: theme.$light-400;
+    }
 
-  &:hover .wrapper span,
-  &:focus .wrapper span,
-  &:focus-visible .wrapper span {
-    background-color: #fff;
-  }
+    &:focus,
+    &[aria-expanded='true'] {
+      box-shadow: 0 0 0 1px theme.$light-500;
+    }
 
-  &:focus,
-  &:focus-visible,
-  &.active {
-    box-shadow: 0 0 0 1px theme.$light-500;
-
-    .wrapper span {
-      background-color: #fff;
+    &:hover,
+    &:focus,
+    &[aria-expanded='true'] {
+      span {
+        background-color: #fff;
+      }
     }
   }
 }

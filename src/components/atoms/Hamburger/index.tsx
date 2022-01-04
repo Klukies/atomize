@@ -14,7 +14,7 @@ const Hamburger = ({ isSidebarOpen, setIsSidebarOpen }: Props) => {
       aria-controls={primaryNavigation}
       aria-expanded={isSidebarOpen}
       aria-label="Toggle sidebar"
-      className={`${styles.hamburger} ${isSidebarOpen ? styles.active : ''}`}
+      className={styles.hamburger}
       onClick={() => setIsSidebarOpen((prevState) => !prevState)}
     >
       <i className={styles.wrapper}>
