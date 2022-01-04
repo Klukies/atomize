@@ -1,13 +1,13 @@
 {
-  "name": "documentation-boilerplate",
+  "name": "atomize",
   "version": "1.0.0",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://git.inthepocket.org/team-spacebar/boilerplates/next-boilerplate"
+    "url": "git@github.com:LukasCornille/atomize.git"
   },
-  "author": "Team Spacebar",
-  "license": "ISC",
+  "author": "Lukas Cornille",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
